@@ -1,0 +1,4 @@
+mybatis:
+  typeAliasesPackage: com.wht.ring.domain
+  mapperLocations: classpath:mapper/*/*.xml
+  check-config-location: true

@@ -1,0 +1,90 @@
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 50000
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    leaseRenewalIntervalInSeconds: 10
+    leaseExpirationDurationInSeconds: 30
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8000/eureka/
+  healthcheck:
+    enabled: true
+springboot-h2:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+feign:
+  hystrix:
+    enabled: true
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: ${DATA_URL:jdbc:mysql://192.168.1.151:3306/shop?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true}
+    username: ${DATA_USERNAME:writeuser}
+    password: ${DATA_PASSWORD:123456}
+  freemarker:
+    template-loader-path: classpath:/templates/
+    cache: false
+    charset: UTF-8
+    check-template-location: true
+    content-type: text/html
+    expose-request-attributes: true
+    expose-session-attributes: true
+    request-context-attribute: request
+    suffix: .ftl
+  redis:
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 60000
+    host: redis
+    port: 6379
+    password: 
+  data:
+    mongodb:
+      host: mongodb
+      username: user
+      password: root
+      database: piggymetrics
+      port: 27017
+  sleuth:
+    sampler:
+      percentage: 1.0
+  zipkin:
+    base-url: http://zipkin-server:9411
+  boot:  
+    admin:  
+      client:  
+        prefer-ip: true 
+management:
+  security:  
+    enabled: false
+wxpay:
+  key: 3d33cf8bafb83f13dfed8d8c40fe0a57
+  mchID: 1482138712
+  mchSECRET: 3d33cf8bafb83f13dfed8d8c40fe0a57
+  appID: wx513610e0a6dd30aa
+  appSECRET: 731fb7c284d4883d6d52ec08e1fa73e7
+  notifyURL: http://api.wanhugou.cn/shop/accountflow/weixinnot
+  token: wanhutong123
+  AESKey: TQ207W9eBLFliMydheEa9YlEPaZ3XI0ptNeLrdhprKW
+  domain: http://wxcaigoushang.wanhugou.cn/hobbit
+  defaultManagerID: 100000211
+user:
+  userPath: http://user:8080
+  adviserSys: 1
+  
+xxl.job.admin.addresses: http://${XXL_JOB_ADDRESS:192.168.1.203:8080}
+xxl.job.executor.appname: ${XXL_JOB_NAME:wares}
+xxl.job.executor.ip: 
+xxl.job.executor.port: ${XXL_JOB_PORT:9999}
+xxl.job.executor.logpath: ${XXL_JOB_LOG_PATH:/data/applogs/xxl-job/jobhandler/}
+xxl.job.accessToken:  

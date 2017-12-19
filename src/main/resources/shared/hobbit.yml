@@ -1,0 +1,14 @@
+mybatis:
+  typeAliasesPackage: com.wanhutong.shop.domain
+  mapperLocations: classpath:mapper/*/*.xml
+  check-config-location: true
+  
+shopPath: http://shop:8080   
+paymentPath: http://passengers:8080 
+productPath: http://wares:8080 
+userPath: http://user:8080 
+
+wx:
+  title: 微信下单立减1000元
+  context: <a href="http://wxcaigoushang.wanhugou.cn/Mine/login.html?openID=oKyWAxNH5TI0kdaVFs1GQcnY0M0U">【万户通】箱包产地直采平台，万款商品工厂同质低价！新用户微信下单立减1000元，免物流费送货上门，还等什么？马上与您的专属采购顾问洽谈</href> 
+  url: http://wxcaigoushang.wanhugou.cn/Mine/login.html?openID=oKyWAxNH5TI0kdaVFs1GQcnY0M0U

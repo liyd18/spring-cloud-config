@@ -1,0 +1,40 @@
+spring: 
+  boot:
+    admin:
+      discovery:
+        enabled: true
+      context-path: /index
+      notify:  
+        mail:  
+          to: ${SBA_MAIL_TO:302979947@qq.com}
+          from: ${SBA_MAIL_USERNAME:it@wanhutong.com}  
+          ignore-changes:  
+            -  
+              "*:UP" #从任何状态到up状态都不要发邮件通知
+      routes:  
+        endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream  
+      turbine:
+        clusters: default 
+        url: http://admin:8080/turbine.stream
+  mail:  
+    host: ${SBA_MAIL_HOST:smtp.aliyun.com}  
+    username: ${SBA_MAIL_USERNAME:it@wanhutong.com}  
+    password: ${SBA_MAIL_PASSWORD:Wanhugou123} 
+    properties:  
+      mail.debug: false  
+      mail.smtp.auth: true
+      mail.smtp.port: 465
+      mail.smtp.ssl.enable: true
+      mail.smtp.ssl.socketFactory: sf
+info:
+  owner: WANHUGOU
+  version: 1.0.0
+
+admin:  
+    username: ${SBA_LOGIN_USERNAME:admin}  
+    password: ${SBA_LOGIN_PASSWORD:wanhugou123}
+turbine:
+  aggregator:
+    clusterConfig: default   # 指定聚合哪些集群，多个使用","分割，默认为default。可使用http://.../turbine.stream?cluster={clusterConfig之一}访问
+  appConfig: ${SBA_APP_LIST:hobbit,passengers,gongying,jubilance,wares,user,mouse}   ### 配置Eureka中的serviceId列表，表明监控哪些服务
+  clusterNameExpression: new String("default")

@@ -1,0 +1,8 @@
+## Mybatis 配置
+mybatis:
+    typeAliasesPackage: com.wanhutong.mouse.domain
+    mapperLocations: classpath:mapper/*/*.xml
+    check-config-location: true
+
+mouse:
+  waresPath: ${M_URL_WARES:http://api.wanhugou.cn/wares}

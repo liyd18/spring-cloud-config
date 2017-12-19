@@ -1,0 +1,9 @@
+mybatis:
+  typeAliasesPackage: com.wanhutong.gongying.domain
+  mapperLocations: classpath:mapper/*.xml
+  check-config-location: true
+  
+basePath: http://shop:8080
+wuliuPath: http://wuliu:8080
+payment: http://passengers:8080
+product: http://wares:8080

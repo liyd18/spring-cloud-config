@@ -1,0 +1,29 @@
+ribbon:
+  ReadTimeout: 20000
+  ConnectTimeout: 20000
+zuul:
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+  routes:
+    wares:
+      path: /wares/**
+      serviceId: wares
+    jubilance:
+      path: /jubilance/**
+      serviceId: jubilance
+    passengers:
+      path: /passengers/**
+      serviceId: passengers
+    gongying:
+      path: /gongying/**
+      serviceId: gongying
+    hobbit:
+      path: /hobbit/**
+      serviceId: hobbit
+    user:
+      path: /user/**
+      serviceId: user
+    mouse:
+      path: /mouse/**
+      serviceId: mouse

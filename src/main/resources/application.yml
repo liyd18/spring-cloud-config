@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/shared
+  profiles:
+     active: native
+
+server:
+  port: ${CONFIG_PORT:9000}
+#忽略权限拦截
+management:
+  security:
+    enabled: false

@@ -1,0 +1,2 @@
+basePath: http://shop:8080   
+payment: http://passengers:8080 

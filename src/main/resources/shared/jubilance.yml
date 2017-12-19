@@ -1,0 +1,37 @@
+#Mybatis 配置
+mybatis:
+  typeAliasesPackage: com.wanhutong.order.domain     
+  mapperLocations: classpath:mapper/*/*.xml     
+  check-config-location: true 
+
+logging:   
+  config: classpath:logback.xml   
+  path: ${O_LOG_PATH}
+
+order:
+  #商品地址
+  productPath: ${O_URL_PRODUCT}
+  #商品地址
+  waresPath: ${O_URL_WARES:http://api.wanhugou.cn/wares}
+  #用户地址
+  userPath: ${O_URL_USER}
+  #shop地址
+  shopPath: ${O_URL_SHOP}
+  #支付地址（废弃）
+  paymentPath: ${O_URL_PAYMENT}
+  #物流地址
+  wuliuPath: ${O_URL_WULIU}
+  #支付地址
+  passengersPath: ${O_URL_PASSENGERS}
+   
+#服务费优惠比例
+scale_one: 0
+scale_two: 0
+
+#网络保证金账户
+order.net_margin_account: WHT_201708031052310000000PAPV
+#借货保证金账户
+order.margin_account: WHT_2017080310481500000003ND9
+
+#第三方支付费率
+order.rate: 0.006

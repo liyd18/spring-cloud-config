@@ -1,0 +1,36 @@
+## Mybatis 配置
+mybatis:
+    typeAliasesPackage: com.wanhutong.passengers.domain
+    mapperLocations: classpath:mapper/*/*.xml
+    check-config-location: true
+
+##日志配置
+logging:
+    config: classpath:logback.xml
+    path: ${P_LOG_PATH}
+
+passengers:
+    ##商品地址
+    productPath: ${P_URL_PRODUCT} 
+    ##用户地址
+    userPath: ${P_URL_USER}  
+    ##shop地址
+    shopPath: ${P_URL_SHOP}  
+    ##支付地址
+    paymentPath: ${P_URL_PAYMENT}  
+    ##物流地址
+    wuliuPath: ${P_URL_WULIU}  
+    ##hobbit地址
+    hobbitPath: ${P_URL_HOBBIT:http://api.wanhugou.cn/hobbit}  
+    ##订单地址
+    jubilancePath: ${P_URL_JUBILABCE:http://api.wanhugou.cn/jubilance} 
+
+private:
+### 网络保证金账户
+  net_margin_account: WHT_201708031052310000000PAPV
+### 借货保证金账户
+  margin_account: WHT_2017080310481500000003ND9
+## 优惠券业务状态(0:关闭，1：开启)
+  coupontype: 1
+##阿里云实名认证
+  aliyun_appcode: 69aa19bc9f5c40ebba4a4295f7652982
